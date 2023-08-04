@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mediador</title>
+    <link rel="shortcut icon" href="./assets/image/hand-drawn-calculator-illustration-png.webp" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bem vindo ao Mediador!</h1>
+    <p></p>
+    <form name="Layout" method="post">
+        Digite sua nota: <input type="number" name="txt_Nota1" min="0" max="10"><p></p>
+        Digite sua nota: <input type="number" name="txt_Nota2" min="0" max="10"><p></p>
+        <input type="button" value="Calcular" onclick="Media()" name="btn_media">
+        <input type="reset" value="apagar" name="btn_Apagar">
+    </form>
+    <p></p>
+    <h1>Resultados</h1>
+    <footer>
+    <div class="ap//rep">
+        <h2 id="ap//rep"></h2>
+    </div>
+    <div class="Media">
+        <h2 id="Media"></h2>
+    </div>
+    <div class="qnt_ponto">
+        <h2 id="qnt_ponto"></h2>
+    </div>
+</footer>
+    <script lang="javascript">
+        //var
+        let nota1, nota2, media, for6, for6m, qntfor6, aporrp;
+        //criação da função
+       function Media(){
+        nota1 = parseFloat(document.Layout.txt_Nota1.value);
+        nota2 = parseFloat(document.Layout.txt_Nota2.value);
+
+        //processamento
+        media = (nota1 + nota2)/2
+
+        //situações
+        if ( media < 6 && nota1 <= nota2){
+            for6 = nota1+nota2;
+            for6m = 12 - for6
+            qntfor6 = for6m + nota1
+            aporrp = "Reprovado"
+            document.getElementById("qnt_ponto").innerHTML = "precisa de "+ qntfor6 + " para passar"
+        } else if(media < 6 && nota2 <= nota1){
+            for6 = nota1+nota2;
+            for6m = 12 - for6
+            qntfor6 = for6m + nota2
+            aporrp = "Reprovado"
+            document.getElementById("qnt_ponto").innerHTML = "precisa de "+ qntfor6 + " para passar"
+        }else{
+            aporrp = "Aprovado"
+            document.getElementById("qnt_ponto").innerHTML = "Não precisa de pontos adcionais"
+        }
+        //saida de dados
+        document.getElementById("Media").innerHTML = "Sua média é igual a: " + media
+        document.getElementById("ap//rep").innerHTML = aporrp
+       }
+    </script>
+</body>
+</html>
